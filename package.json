@@ -14,11 +14,19 @@
   },
   "scripts": {
     "dev:main": "next dev",
-    "dev:db": "docker compose up"
+    "dev:db": "docker compose up",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "pre-install": "husky install"
   },
   "devDependencies": {
     "@types/react": "^17.0.26",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.4.1",
     "prisma": "^3.1.1",
     "typescript": "^4.4.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,md}": "prettier --write"
   }
 }
