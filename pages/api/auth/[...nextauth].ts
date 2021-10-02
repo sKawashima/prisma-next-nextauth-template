@@ -14,4 +14,10 @@ export default NextAuth({
   ],
   database: process.env.DATABASE_URL,
   adapter: Adapters.Prisma.Adapter({ prisma }),
+  callbacks: {
+    session: async (session, user) => {
+       session.id = user.id
+       return Promise.resolve(session)
+    }
+  }
 })
