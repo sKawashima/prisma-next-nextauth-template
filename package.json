@@ -1,0 +1,7 @@
+{
+  "name": "prisma-next-nextauth-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "sKawashima <bysk.333@gmail.com>",
+  "license": "MIT"
+}
