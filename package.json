@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "sKawashima <bysk.333@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "prisma": "^3.1.1"
+  },
+  "scripts": {
+    "dev:db": "docker compose up"
+  }
 }
