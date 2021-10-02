@@ -13,6 +13,7 @@
     "react-dom": "^17.0.2"
   },
   "scripts": {
+    "dev": "npm-run-all -p dev:*",
     "dev:main": "next dev",
     "dev:db": "docker compose up",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -22,6 +23,7 @@
     "@types/react": "^17.0.26",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.4.1",
     "prisma": "^3.1.1",
     "typescript": "^4.4.3"
