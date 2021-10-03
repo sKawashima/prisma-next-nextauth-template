@@ -1,12 +1,16 @@
 import 'antd/dist/antd.css'
 import type { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'
+import { queryClient } from '../lib/queryClient'
+import { QueryClientProvider } from 'react-query'
 
 const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
   return (
-    <Provider session={session}>
-      <Component {...pageProps} />
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Provider session={session}>
+        <Component {...pageProps} />
+      </Provider>
+    </QueryClientProvider>
   )
 }
 
