@@ -12,13 +12,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "scripts": {
-    "dev": "npm-run-all -p dev:*",
-    "dev:main": "next dev",
-    "dev:db": "docker compose up",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "pre-install": "husky install"
-  },
   "devDependencies": {
     "@types/react": "^17.0.26",
     "husky": "^7.0.2",
@@ -27,6 +20,14 @@
     "prettier": "^2.4.1",
     "prisma": "^3.1.1",
     "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "dev": "npm-run-all -p dev:*",
+    "dev:main": "next dev",
+    "dev:db": "docker compose up",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "pre-install": "husky install",
+    "lint-staged": "lint-staged"
   },
   "lint-staged": {
     "*.{ts,tsx,md}": "prettier --write"
