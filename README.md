@@ -1,5 +1,7 @@
 # Prisma Next.js Next-Auth on pnpm template
 
+`pnpm`で組んでるが`npm`や`yarn`を使う場合は`pnpm-lock.yml`を削除し`.husky/pre-commit`を調整すれば使えるはず
+
 ## Development .env setting
 
 ```
