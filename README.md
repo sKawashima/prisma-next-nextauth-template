@@ -1,4 +1,4 @@
-# Prisma Next.js Next-Auth React-Query on pnpm template
+# Prisma Next.js Next-Auth React-Query on TypeScript template
 
 `pnpm`で組んでるが`npm`や`yarn`を使う場合は`pnpm-lock.yml`を削除すれば使えるはず
 
