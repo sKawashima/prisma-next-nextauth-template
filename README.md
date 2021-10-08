@@ -20,4 +20,7 @@ pnpm i
 
 # run dev server, db
 pnpm run dev
+
+# prisma format, migrate, generate
+pnpm run migrate
 ```
