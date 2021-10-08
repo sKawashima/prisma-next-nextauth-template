@@ -28,7 +28,8 @@
     "dev:db": "docker compose up",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "pre-install": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "migrate": "prisma format && prisma migrate dev && prisma generate"
   },
   "lint-staged": {
     "*.{ts,tsx,md}": "prettier --write"
