@@ -1,7 +1,7 @@
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { Button } from 'antd'
 
-const indexPage = () => {
+const IndexPage = () => {
   const [session, loading] = useSession()
 
   return (
@@ -22,4 +22,4 @@ const indexPage = () => {
   )
 }
 
-export default indexPage
+export default IndexPage
