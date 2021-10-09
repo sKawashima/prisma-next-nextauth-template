@@ -7,6 +7,8 @@
   "dependencies": {
     "@prisma/client": "^3.1.1",
     "antd": "^4.16.13",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.1.2",
     "next": "^11.1.2",
     "next-auth": "^3.29.0",
     "react": "^17.0.2",
@@ -28,6 +30,7 @@
     "dev:db": "docker compose up",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "pre-install": "husky install",
+    "lint": "next lint",
     "lint-staged": "lint-staged",
     "migrate": "prisma format && prisma migrate dev && prisma generate"
   },
