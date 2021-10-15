@@ -32,7 +32,8 @@
     "pre-install": "husky install",
     "lint": "next lint",
     "lint-staged": "lint-staged",
-    "migrate": "prisma format && prisma migrate dev && prisma generate"
+    "migrate": "prisma format && prisma migrate dev && prisma generate",
+    "studio": "prisma studio"
   },
   "lint-staged": {
     "*.{ts,tsx,md}": "prettier --write"
