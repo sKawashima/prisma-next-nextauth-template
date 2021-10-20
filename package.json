@@ -25,7 +25,6 @@
     "typescript": "^4.4.3"
   },
   "scripts": {
-    "build": "next build",
     "dev": "npm-run-all -p dev:*",
     "dev:main": "next dev",
     "dev:db": "docker compose up",
@@ -34,7 +33,9 @@
     "lint": "next lint",
     "lint-staged": "lint-staged",
     "migrate": "prisma format && prisma migrate dev && prisma generate",
-    "studio": "prisma studio"
+    "studio": "prisma studio",
+    "build": "next build",
+    "start": "next start"
   },
   "lint-staged": {
     "*.{ts,tsx,md}": "prettier --write"
