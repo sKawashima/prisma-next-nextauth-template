@@ -33,7 +33,9 @@
     "lint": "next lint",
     "lint-staged": "lint-staged",
     "migrate": "prisma format && prisma migrate dev && prisma generate",
-    "studio": "prisma studio"
+    "studio": "prisma studio",
+    "build": "next build",
+    "start": "next start"
   },
   "lint-staged": {
     "*.{ts,tsx,md}": "prettier --write"
