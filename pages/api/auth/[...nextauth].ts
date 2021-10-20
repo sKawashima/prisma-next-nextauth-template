@@ -14,7 +14,7 @@ export default NextAuth({
   adapter: Adapters.Prisma.Adapter({ prisma }),
   callbacks: {
     session: async (session, user) => {
-      session.id = user.id
+      session.user.id = user.id as number
       return Promise.resolve(session)
     },
   },
