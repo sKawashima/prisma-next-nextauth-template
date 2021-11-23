@@ -1,5 +1,5 @@
 ---
-name: 'reactComponent'
+name: 'component'
 root: 'components'
 output: '**/*'
 ignore: []
@@ -8,7 +8,7 @@ questions:
   name: 'Component name?.'
 ---
 
-# `{{ inputs.directory }}/{{ inputs.name }}/index.tsx`
+# `{{ inputs.directory }}/{{ inputs.name }}.tsx`
 
 ```tsx
 import React from 'react'
