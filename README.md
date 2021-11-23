@@ -1,7 +1,5 @@
 # Prisma Next.js Next-Auth React-Query on TypeScript template
 
-`pnpm`で組んでるが`npm`や`yarn`を使う場合は`pnpm-lock.yml`を削除すれば使えるはず
-
 ## Development .env setting
 
 ```
@@ -10,17 +8,32 @@ GOOGLE_ID="***"
 GOOGLE_SECRET="***"
 ```
 
+## Docker setting
+
+```yml
+version: '3.1'
+
+services:
+  db:
+    image: postgres:13-alpine
+    container_name: temp-name
+    # Please update here
+    command: postgres -c log_destination=stderr -c log_statement=all
+    logging:
+      options:
+```
+
 ## Development
 
 ```bash
 # if not install: brew install pnpm
 
 # install module
-pnpm i
+yarn
 
 # run dev server, db
-pnpm run dev
+yarn dev
 
 # prisma format, migrate, generate
-pnpm run migrate
+yarn migrate
 ```
