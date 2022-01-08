@@ -1,5 +1,4 @@
 import { signIn, signOut, useSession } from 'next-auth/client'
-import { Button } from 'antd'
 
 const IndexPage = () => {
   const [session, loading] = useSession()
@@ -9,13 +8,13 @@ const IndexPage = () => {
       {!session && (
         <>
           Not signed in <br />
-          <Button onClick={() => signIn()}>Sign in</Button>
+          <button onClick={() => signIn()}>Sign in</button>
         </>
       )}
       {session && (
         <>
           Signed in as {session.user.email} <br />
-          <Button onClick={() => signOut()}>Sign out</Button>
+          <button onClick={() => signOut()}>Sign out</button>
         </>
       )}
     </>
