@@ -25,7 +25,7 @@
     "typescript": "^4.4.3"
   },
   "scripts": {
-    "dev": "npm-run-all -p dev:*",
+    "dev": "npm-run-all -p dev:* --print-label",
     "dev:main": "next dev",
     "dev:db": "docker compose up",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
