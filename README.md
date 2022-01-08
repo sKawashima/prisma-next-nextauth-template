@@ -1,4 +1,4 @@
-# Prisma Next.js Next-Auth React-Query on TypeScript template
+# Prisma Next.js Next-Auth on TypeScript template
 
 ## Development .env setting
 
