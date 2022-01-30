@@ -1,4 +1,3 @@
-import 'antd/dist/antd.css'
 import type { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'
 
