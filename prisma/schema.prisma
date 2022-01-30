@@ -22,6 +22,7 @@ model Account {
   accessTokenExpires DateTime? @map(name: "access_token_expires")
   createdAt          DateTime  @default(now()) @map(name: "created_at")
   updatedAt          DateTime  @default(now()) @map(name: "updated_at")
+
   @@index([providerAccountId], name: "providerAccountId")
   @@index([providerId], name: "providerId")
   @@index([userId], name: "userId")
@@ -36,18 +37,21 @@ model Session {
   accessToken  String   @unique @map(name: "access_token")
   createdAt    DateTime @default(now()) @map(name: "created_at")
   updatedAt    DateTime @default(now()) @map(name: "updated_at")
+
   @@map(name: "sessions")
 }
 
 model User {
-  id            Int       @id @default(autoincrement())
-  displayId     String?   @unique
+  id            Int          @id @default(autoincrement())
+  displayId     String?      @unique
   name          String?
-  email         String?   @unique
-  emailVerified DateTime? @map(name: "email_verified")
+  email         String?      @unique
+  emailVerified DateTime?    @map(name: "email_verified")
   image         String?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @default(now()) @map(name: "updated_at")
+  createdAt     DateTime     @default(now()) @map(name: "created_at")
+  updatedAt     DateTime     @default(now()) @map(name: "updated_at")
+  SampleTodo    SampleTodo[]
+
   @@map(name: "users")
 }
 
@@ -58,5 +62,15 @@ model VerificationRequest {
   expires    DateTime
   createdAt  DateTime @default(now()) @map(name: "created_at")
   updatedAt  DateTime @default(now()) @map(name: "updated_at")
+
   @@map(name: "verification_requests")
+}
+
+model SampleTodo {
+  id        Int      @id @default(autoincrement())
+  title     String
+  author    User     @relation(fields: [userId], references: [id])
+  userId    Int
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
 }
