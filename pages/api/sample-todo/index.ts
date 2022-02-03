@@ -32,6 +32,18 @@ const api: NextApiHandler = async (
       return res.status(500).json({ error: 'Error: Cannot create sampleTodo' })
 
     return res.status(200).json(sampleTodo)
+  } else if (req.method === 'GET') {
+    const prisma = new PrismaClient()
+
+    const sampleTodos = await prisma.sampleTodo.findMany({
+      where: {
+        author: session.user,
+      },
+      orderBy: {
+        createdAt: 'asc',
+      },
+    })
+    return res.status(200).json({ sampleTodos })
   }
 }
 
