@@ -1,5 +1,6 @@
 import { useSession } from 'next-auth/client'
 import Link from 'next/link'
+import { postSampleTodoReqBody } from '../api/sample-todo'
 
 const Page = () => {
   const [session, loading] = useSession()
@@ -23,10 +24,14 @@ const Page = () => {
       <label>task title</label>
       <input id="title" />
       <button
-        onClick={() => {
+        onClick={async () => {
           const title = (document.getElementById('title') as HTMLInputElement)
             .value
-          console.log(title)
+          const reqBody: postSampleTodoReqBody = { title }
+          await fetch('/api/sample-todo', {
+            method: 'POST',
+            body: JSON.stringify(reqBody),
+          })
         }}
       >
         submit
