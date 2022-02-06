@@ -17,7 +17,7 @@ const Page = () => {
   const { data, error } = useSWR('/api/sample-todo', fetcher)
   const { mutate } = useSWRConfig()
 
-  if (loading) return <>loading</>
+  if (loading || !data) return <>loading</>
   if (error) return <>error</>
   if (!session)
     return (
@@ -30,7 +30,7 @@ const Page = () => {
     <>
       <h1>Sample: Todo</h1>
       <ul>
-        {data?.sampleTodos.map((sampleTodo: SampleTodo) => (
+        {data.sampleTodos.map((sampleTodo: SampleTodo) => (
           <li key={sampleTodo.id}>
             <button
               onClick={async () => {
