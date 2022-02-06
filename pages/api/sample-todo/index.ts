@@ -6,6 +6,10 @@ export type postSampleTodoReqBody = {
   title: string
 }
 
+export type deleteSampleTodoReqBody = {
+  id: number
+}
+
 const api: NextApiHandler = async (
   req: NextApiRequest,
   res: NextApiResponse
@@ -44,6 +48,19 @@ const api: NextApiHandler = async (
       },
     })
     return res.status(200).json({ sampleTodos })
+  } else if (req.method === 'DELETE') {
+    const reqBody: deleteSampleTodoReqBody = JSON.parse(req.body)
+    const prisma = new PrismaClient()
+
+    const deleteTodo = await prisma.sampleTodo.delete({
+      where: {
+        id: reqBody.id,
+      },
+    })
+
+    if (!deleteTodo)
+      return res.status(500).json({ error: 'Error: Cannot delete sampleTodo' })
+    return res.status(200).json({ deleteTodo })
   }
 }
 

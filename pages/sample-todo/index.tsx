@@ -2,7 +2,10 @@ import { SampleTodo } from '@prisma/client'
 import { useSession } from 'next-auth/client'
 import Link from 'next/link'
 import useSWR, { useSWRConfig } from 'swr'
-import { postSampleTodoReqBody } from '../api/sample-todo'
+import {
+  deleteSampleTodoReqBody,
+  postSampleTodoReqBody,
+} from '../api/sample-todo'
 
 const fetcher = async () => {
   const res = await fetch('/api/sample-todo')
@@ -27,8 +30,22 @@ const Page = () => {
     <>
       <h1>Sample: Todo</h1>
       <ul>
-        {data.sampleTodos.map((sampleTodo: SampleTodo, i) => (
-          <li key={i}>{sampleTodo.title}</li>
+        {data?.sampleTodos.map((sampleTodo: SampleTodo) => (
+          <li key={sampleTodo.id}>
+            <button
+              onClick={async () => {
+                const reqBody: deleteSampleTodoReqBody = { id: sampleTodo.id }
+                await fetch('/api/sample-todo', {
+                  method: 'DELETE',
+                  body: JSON.stringify(reqBody),
+                })
+                await mutate('/api/sample-todo')
+              }}
+            >
+              done
+            </button>{' '}
+            {sampleTodo.title}
+          </li>
         ))}
       </ul>
       <label>task title</label>
